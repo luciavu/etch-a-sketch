@@ -3,15 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-a-sketch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontello.css">
 </head>
 <body>
-    <div class="main-container center">
-        <div class="container center"></div>
-        <div class="settings center"></div>
-    </div>
+    <header>
+        <a href="https://github.com/luciavu/etch-a-sketch" target="_blank"><i class="icon-github-circled"></i></a>
+    </header>
+    <main class="center">
+        <div class="container center">
+            <div class="settings">
+                <div class="buttons center">
+                    <input id="colorPicker" type="color">
+                    <button id="pencilBtn" class="small"><i class="icon-pencil"></i></button>
+                    <button id="brushBtn" class="small"><i class="icon-brush"></i></button>
+                    <button id="eraserBtn" class="small"><i class="icon-eraser"></i></button>
+                    <button id="gridBtn" class="small"><i class="icon-grid"></i></button>
+                    <button id="downloadBtn" class="small"><i class="icon-download"></i></button> 
+                    <button id="clearBtn" class="small"><i class="icon-trash"></i></button> 
+                </div> 
+            </div>
+            <div class="grid center"></div>
+            <div class="size-adjst">
+                <input id="sizeSlider" type="range" value="16" min="1" max="100">
+                <div class="size-value"></div>
+            </div>
+            
+        </div>
+    </main>
 </body>
 </html>
 
