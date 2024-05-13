@@ -1,0 +1,122 @@
+* {
+    font-size: 16px;
+    font-family: Montserrat, Arial;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    * {
+        font-size: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        gap: 0 !important;
+    }
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 1rem;
+    gap: 2%;
+    height: 80vh;
+    flex-direction: column;
+}
+
+.grid {
+    flex-wrap: wrap;
+    width: 27rem;
+    height: 27rem;
+    margin-bottom: 0.2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+    
+.square {
+    outline: 1px solid rgb(246, 246, 255);
+    height: 10%;
+    width: 10%;
+}
+
+.input[type="range"] {
+    width: 100%;
+}
+
+.size-value {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border: none;
+}
+
+input[type="color"] {
+    outline: 0.1rem solid rgb(234, 234, 234);
+    border-radius: 0.8rem;
+    border: 1rem solid black;
+    width: 1.2rem;
+    height: 1.4rem; 
+    cursor: pointer;
+    padding: 0; 
+    margin-right: 1rem;
+}
+
+.selection {
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buttons {
+    width: 100%;
+}
+
+button {
+    height: 2.3rem;
+    width: 2.3rem;
+    margin: 0.5rem 0.2rem;
+    cursor: pointer;
+    align-items: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    font-weight: 600;
+}
+
+#clearBtn {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+header {
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+header a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+
+header i {
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+}
