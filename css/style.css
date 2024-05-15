@@ -6,6 +6,7 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: rgb(217, 217, 217);
 }
 
 @media only screen and (max-width: 600px) {
@@ -18,6 +19,23 @@ body {
         width: 100%;
         gap: 0 !important;
     }
+}
+
+header {
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+header a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+header i {
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .center {
@@ -45,17 +63,24 @@ body {
 }
     
 .square {
-    outline: 1px solid rgb(246, 246, 255);
     height: 10%;
     width: 10%;
 }
 
-.input[type="range"] {
+.size-adjust {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 8rem;
+    margin-right: 1rem;
+}
+
+input[type="range"] {
     width: 100%;
+    background-attachment: black;
 }
 
 .size-value {
-    text-align: center;
     font-size: 1rem;
     font-weight: 500;
 }
@@ -101,22 +126,4 @@ button {
 #clearBtn {
     background-color: rgb(255, 0, 0);
     color: rgb(255, 255, 255);
-}
-
-header {
-    padding-top: 1rem;
-    padding-left: 1rem;
-}
-header a {
-    display: inline-block;
-    text-decoration: none;
-}
-
-
-
-header i {
-    color: rgb(0, 0, 0);
-    font-size: 2.5rem;
-    width: 2rem;
-    height: 2rem;
 }
