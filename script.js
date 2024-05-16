@@ -12,14 +12,24 @@ function populate_grid(size) {
         grid.appendChild(square);
         square.style.width = squareSize + '%';
         square.style.height = squareSize + '%';
-
+        
+        square.addEventListener('mousedown', function(event) {
+            event.preventDefault(); // Prevent dragging
+            square.style.backgroundColor = colorPicker.value;
+        });
+        
         square.addEventListener('mousedown', function(event) {
             if (event.buttons == 1 || event.buttons == 2) {
                 paint();
             }
         });
+    };
+};
 
-        let pen = document.querySelector(".active").id;
+function paint() {
+    const squares = document.getElementsByClassName('square');
+    let pen = document.querySelector(".active").id;
+    for (let square of squares) {
         square.addEventListener('mousedown', function(event) {
             event.preventDefault(); // Prevent dragging
             square.style.backgroundColor = colorPicker.value;
@@ -38,10 +48,6 @@ function populate_grid(size) {
             }
         });
     };
-};
-
-function paint() {
-    const squares = document.getElementsByClassName('square'); 
 }
 
 function get_random_color() {
@@ -52,18 +58,15 @@ function get_random_color() {
 }
 
 function toggle_pen(mainPen) {
-    // Find and remove active state on previous pen
-    let prevPen = document.querySelector(".active")
-    prevPen.classList.remove("active");
-    prevPen.style.color = 'black';
-    prevPen.style.backgroundColor = 'white';
-    
+    // Remove active state from previous pen
+    const prevPen = document.querySelector(".active");
+    if (prevPen) {
+        prevPen.classList.remove("active");
+    }
+
     // Set new pen as active
-    let newPen = document.getElementById(mainPen)
+    const newPen = document.getElementById(mainPen);
     newPen.classList.add("active");
-    newPen.classList.add("active")
-    newPen.style.color = 'white';
-    newPen.style.backgroundColor = 'black';
 };
 
 function toggle_grid() {
