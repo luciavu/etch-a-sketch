@@ -54,7 +54,6 @@ function get_random_color() {
 function toggle_pen(mainPen) {
     // Find and remove active state on previous pen
     let prevPen = document.querySelector(".active")
-    console.log(prevPen);
     prevPen.classList.remove("active");
     prevPen.style.color = 'black';
     prevPen.style.backgroundColor = 'white';
@@ -68,25 +67,21 @@ function toggle_pen(mainPen) {
 };
 
 function toggle_grid() {
-    const gridActive = document.getElementsByClassName('gridActive');
     const button = document.getElementById('gridBtn');
     const squares = document.getElementsByClassName('square');
-    // If no outline, then add outline, change button colour
-    console.log(gridActive.length)
-    if (gridActive.length === 0) {
+    
+    // Toggle grid
+    button.classList.toggle('gridActive');
+    for (let square of squares) {
+        square.classList.toggle('gridActive');
+    }
+
+    if (button.classList.contains('gridActive')) {
         button.style.color = 'white';
         button.style.backgroundColor = 'black';
-        
-        for (let square of squares) {
-            square.classList.add('gridActive');
-        }
     } else {
         button.style.color = 'black';
         button.style.backgroundColor = 'white';
-
-        for (let square of squares) {
-            square.classList.remove('gridActive');
-        }
     }
 };
 
@@ -132,4 +127,5 @@ const grid = document.getElementById('gridBtn');
 grid.addEventListener('click', () => {
     toggle_grid();
 });
+
 populate_grid(DEFAULT_SIZE);
