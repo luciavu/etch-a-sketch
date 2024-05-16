@@ -3,8 +3,8 @@ DEFAULT_SIZE = 16
 function populate_grid(size) {
     let grid = document.querySelector('.grid')
     grid.innerHTML = ""; // Reset grid
-    totalSquares = size**2;
-    squareSize = 100/Math.sqrt(totalSquares);
+    let totalSquares = size**2;
+    let squareSize = 100/Math.sqrt(totalSquares);
     
     for (let i = 0; i < totalSquares; i++) {
         const square = document.createElement('div');
@@ -18,13 +18,8 @@ function populate_grid(size) {
                 paint();
             }
         });
-    };
-};
 
-function paint() {
-    const squares = document.getElementsByClassName('square');
-    let pen = document.querySelector(".active").id;
-    for (let square of squares) {
+        let pen = document.querySelector(".active").id;
         square.addEventListener('mousedown', function(event) {
             event.preventDefault(); // Prevent dragging
             square.style.backgroundColor = colorPicker.value;
@@ -43,6 +38,10 @@ function paint() {
             }
         });
     };
+};
+
+function paint() {
+    const squares = document.getElementsByClassName('square'); 
 }
 
 function get_random_color() {
@@ -90,13 +89,13 @@ function toggle_grid() {
         }
     }
 };
+
 // Event listeners
 const slider = document.getElementById('sizeSlider');
 const sliderText = document.querySelector('.size-value');
 
 sliderText.textContent = `${slider.value} x ${slider.value}`;
 slider.addEventListener("input", () => {
-    slider.TextContent = '';
     sliderText.textContent = `${slider.value} x ${slider.value}`;
     populate_grid(slider.value);
 });
@@ -108,7 +107,7 @@ colorPicker.addEventListener('input', () => {
 
 const clearCanvas = document.getElementById('clearBtn');
 clearCanvas.addEventListener('mousedown', () => {
-    populate_grid(DEFAULT_SIZE);
+    populate_grid(slider.value);
 });
 
 const normal = document.getElementById('normal');
