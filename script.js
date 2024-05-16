@@ -1,7 +1,7 @@
 DEFAULT_SIZE = 16
 
 function populate_grid(size) {
-    grid = document.querySelector('.grid')
+    let grid = document.querySelector('.grid')
     grid.innerHTML = ""; // Reset grid
     totalSquares = size**2;
     squareSize = 100/Math.sqrt(totalSquares);
@@ -68,6 +68,28 @@ function toggle_pen(mainPen) {
     newPen.style.backgroundColor = 'black';
 };
 
+function toggle_grid() {
+    const gridActive = document.getElementsByClassName('gridActive');
+    const button = document.getElementById('gridBtn');
+    const squares = document.getElementsByClassName('square');
+    // If no outline, then add outline, change button colour
+    console.log(gridActive.length)
+    if (gridActive.length === 0) {
+        button.style.color = 'white';
+        button.style.backgroundColor = 'black';
+        
+        for (let square of squares) {
+            square.classList.add('gridActive');
+        }
+    } else {
+        button.style.color = 'black';
+        button.style.backgroundColor = 'white';
+
+        for (let square of squares) {
+            square.classList.remove('gridActive');
+        }
+    }
+};
 // Event listeners
 const slider = document.getElementById('sizeSlider');
 const sliderText = document.querySelector('.size-value');
@@ -107,4 +129,8 @@ eraser.addEventListener('click', () => {
     toggle_pen('eraser');
 });
 
+const grid = document.getElementById('gridBtn');
+grid.addEventListener('click', () => {
+    toggle_grid();
+});
 populate_grid(DEFAULT_SIZE);
