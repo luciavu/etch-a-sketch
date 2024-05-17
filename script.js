@@ -23,7 +23,24 @@ function populate_grid(size) {
                 paint();
             }
         });
+
+        // Paint functionality for phone
+        square.addEventListener('touchstart', paintOnTouchStart);
+        square.addEventListener('touchmove', paintOnTouchMove);
     };
+};
+
+
+function paintOnTouchStart(event) {
+    event.preventDefault();
+    const square = event.targetTouches[0].target;
+    paint(square);
+};
+
+function paintOnTouchMove(event) {
+    event.preventDefault();
+    const square = event.targetTouches[0].target;
+    paint(square);
 };
 
 function paint() {
