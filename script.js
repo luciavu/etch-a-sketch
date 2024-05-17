@@ -15,43 +15,29 @@ function populate_grid(size) {
         
         square.addEventListener('mousedown', function(event) {
             event.preventDefault(); // Prevent dragging
-            square.style.backgroundColor = colorPicker.value;
-        });
-        
-        square.addEventListener('mousedown', function(event) {
             if (event.buttons == 1 || event.buttons == 2) {
                 paint();
             }
         });
 
         // Paint functionality for phone
-        square.addEventListener('touchstart', paintOnTouchStart);
-        square.addEventListener('touchmove', paintOnTouchMove);
+        square.addEventListener('touchstart', function(event) {
+            event.preventDefault();
+            paint(square);
+        });
+        
+        square.addEventListener('touchmove', function(event) {
+            event.preventDefault();
+            paint(square);
+        });
     };
 };
 
-
-function paintOnTouchStart(event) {
-    event.preventDefault();
-    const square = event.targetTouches[0].target;
-    paint(square);
-};
-
-function paintOnTouchMove(event) {
-    event.preventDefault();
-    const square = event.targetTouches[0].target;
-    paint(square);
-};
 
 function paint() {
     const squares = document.getElementsByClassName('square');
     let pen = document.querySelector(".active").id;
     for (let square of squares) {
-        square.addEventListener('mousedown', function(event) {
-            event.preventDefault(); // Prevent dragging
-            square.style.backgroundColor = colorPicker.value;
-        });
-        
         square.addEventListener('mouseover', function(event) {
             if (event.buttons == 1 || event.buttons == 2) {
                 if (pen == 'normal') {
